@@ -1,0 +1,12 @@
+Location	Name	ID	Count	Slots
+General 1-Slot1	Spiroc Air Totem	1	1	11
+General 1-Slot2	Empty	0	0	0
+General 1-Slot3	Wind Rune Beza	2	0	11
+Bank1	Pauldrons of the Blue Sky +7	3	1	11
+General 4	Al'Kabor's Cap of Binding (Exaltation)	4	1	11
+General 5	Brass Knuckles	5	1	11
+Neck	Some Other Loot	6	1	11
+
+KeyRing	Name	ID
+Augmentation	Efreeti War Spear +2	7
+Equipment	Mithril Bands (Exaltation)	8

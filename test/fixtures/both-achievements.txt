@@ -1,0 +1,19 @@
+Untapped Potential: Classes
+C	Primary Class Unlock - Warrior
+I		Obtain Pauldrons of the Blue Sky.
+I		This achievement can be bypassed using a Primary Class Unlock Token.
+I	Primary Class Unlock - Ranger
+C		Obtain Dark Cloak of the Sky.
+I		Obtain Griffon Talon Necklace.
+I		This achievement will autocomplete if you chose to confirm your Primary Class as a Ranger.
+I	Primary Class Unlock - Beastlord
+I		Obtain Windhowl and Spirit Render
+I	Primary Class Unlock - Wizard
+I		Obtain Al`Kabor's Cap of Binding.
+I		Obtain Not In Catalog.
+I	Primary Class Unlock - Shadowknight
+I		Obtain Khyldorn the Blood Drinker.
+I	Primary Class Unlock - Monk
+C		Obtain Fist of the Heavens.
+I	Primary Class Unlock - Not A Class
+I		Obtain Something Else.
