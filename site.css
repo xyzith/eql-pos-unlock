@@ -1,0 +1,29 @@
+body {
+  margin: 0;
+  font: 16px/1.5 sans-serif;
+  background: #16130f;
+  color: #f3ead8;
+}
+main {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+label, button {
+  font: inherit;
+}
+.local, .banner {
+  color: #e2c27a;
+}
+.class-block, .island-block {
+  margin-top: 1.25rem;
+}
+button[aria-selected="true"] {
+  border-bottom: 2px solid #e2c27a;
+}
+.have {
+  color: #9dcc9d;
+}
+.need {
+  color: #e7a0a0;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PoS 職業解鎖</title>
+    <link rel="stylesheet" href="site.css">
+  </head>
+  <body>
+    <main>
+      <h1>Plane of Sky 職業解鎖</h1>
+      <p class="local">這兩個檔只在這台瀏覽器裡讀，不會送出。</p>
+      <label>成就清單 <input id="ach" type="file" accept=".txt"></label>
+      <p id="ach-name"></p>
+      <label>裝備清單 <input id="inv" type="file" accept=".txt"></label>
+      <p id="inv-name"></p>
+      <div id="banners"></div>
+      <p id="completed"></p>
+      <div id="tabs" hidden>
+        <button type="button" id="tab-class" aria-selected="true">依職業</button>
+        <button type="button" id="tab-island">依島</button>
+      </div>
+      <div id="class-pane"></div>
+      <div id="island-pane" hidden></div>
+    </main>
+    <script type="module" src="src/app.js"></script>
+  </body>
+</html>
