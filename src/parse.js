@@ -39,10 +39,17 @@ export function parseAchievements(text) {
       continue;
     }
     if (parts.length === 3 && parts[1] === "") {
+      if (!parts[2].startsWith("Obtain ")) continue;
       if (!current) return { ok: false };
-      if (parts[2].startsWith("Obtain ")) {
-        current.obtains.push({ status: parts[0], text: parts[2] });
-      }
+      current.obtains.push({ status: parts[0], text: parts[2] });
+      continue;
+    }
+    if (
+      parts.length === 4 &&
+      parts[1] === "" &&
+      parts[2] !== "" &&
+      !parts[2].startsWith("Obtain ")
+    ) {
       continue;
     }
     return { ok: false };

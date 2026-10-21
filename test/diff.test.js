@@ -43,6 +43,27 @@ test("parseAchievements fails closed", () => {
   assert.deepEqual(parseAchievements("I\t\tObtain Mask of Song.\n"), { ok: false });
 });
 
+test("parseAchievements skips non-obtain rows around a class block", () => {
+  const parsed = parseAchievements(
+    [
+      "C\t\tGet maximum faction with the guards",
+      "C\tPrimary Class Unlock - Bard",
+      "I\t\tObtain Mask of Song.",
+      "I\t\tFinish the trial\t2/5",
+    ].join("\n"),
+  );
+  assert.deepEqual(parsed, {
+    ok: true,
+    classes: [
+      {
+        status: "C",
+        name: "Bard",
+        obtains: [{ status: "I", text: "Obtain Mask of Song." }],
+      },
+    ],
+  });
+});
+
 const HEADER = "Location\tName\tID\tCount\tSlots";
 
 test("parseInventory keeps bag names and keyring names", () => {
