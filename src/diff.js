@@ -33,10 +33,6 @@ export function normClass(raw) {
   return String(raw).replace(/\s+/g, "").toLowerCase();
 }
 
-function empty() {
-  return { banners: [], showList: false, completed: null, classes: [], islands: [] };
-}
-
 function testKey(className, rewards) {
   return `${normClass(className)}\n${rewards.map(normItem).slice().sort().join("\n")}`;
 }
@@ -198,9 +194,11 @@ function islandsOf(catalog, classes) {
   return ordered;
 }
 
-export function diff(catalog, achievements, inventory) {
-  if (!achievements?.ok || !inventory?.ok || achievements.classes.length === 0) return empty();
-  const held = new Set(inventory.names.map(normItem).filter((name) => name !== ""));
+function heldSet(inventory) {
+  return new Set(inventory.names.map(normItem).filter((name) => name !== ""));
+}
+
+function listFromAchievements(catalog, achievements, held) {
   const built = openFromAchievements(catalog, achievements, held);
   return {
     banners: [],
@@ -209,4 +207,49 @@ export function diff(catalog, achievements, inventory) {
     classes: built.classes,
     islands: islandsOf(catalog, built.classes),
   };
+}
+
+function listFromInventory(catalog, held) {
+  const classes = [];
+  for (const row of catalog.tests) {
+    let group = classes.find((item) => item.name === row.class);
+    if (!group) {
+      group = { name: row.class, npc: row.npc, note: null, tests: [] };
+      classes.push(group);
+    }
+    group.tests.push(viewOf({ ...row, drops: catalog.drops }, held));
+  }
+  return {
+    banners: [],
+    showList: true,
+    completed: null,
+    classes,
+    islands: islandsOf(catalog, classes),
+  };
+}
+
+export function diff(catalog, achievements, inventory) {
+  const achOk = Boolean(achievements?.ok);
+  const invOk = Boolean(inventory?.ok);
+  if (achOk && achievements.classes.length === 0) {
+    const banners = [NO_UNLOCK];
+    if (inventory && !inventory.ok) banners.push(BAD_GEAR);
+    return { banners, showList: false, completed: null, classes: [], islands: [] };
+  }
+  if (!achOk && !invOk) {
+    const banners = [];
+    if (achievements && !achievements.ok) banners.push(BAD_ACH);
+    if (inventory && !inventory.ok) banners.push(BAD_GEAR);
+    return { banners, showList: false, completed: null, classes: [], islands: [] };
+  }
+  if (achOk) {
+    const result = listFromAchievements(catalog, achievements, invOk ? heldSet(inventory) : null);
+    if (!invOk) result.banners.push(NO_GEAR);
+    if (inventory && !inventory.ok) result.banners.push(BAD_GEAR);
+    return result;
+  }
+  const result = listFromInventory(catalog, heldSet(inventory));
+  result.banners.push(NO_ACH);
+  if (achievements && !achievements.ok) result.banners.push(BAD_ACH);
+  return result;
 }

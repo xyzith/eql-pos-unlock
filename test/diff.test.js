@@ -87,6 +87,12 @@ test("parseInventory fails closed", () => {
 
 const fixture = (name) => readFileSync(new URL(`fixtures/${name}`, import.meta.url), "utf8");
 
+const NO_GEAR = "沒有裝備清單。看不出哪些已經持有，下面每件都先當成還缺。";
+const NO_ACH = "沒有成就清單。已解完又刪掉的也算還缺。";
+const BAD_ACH = "成就清單沒讀到。";
+const BAD_GEAR = "裝備清單沒讀到。";
+const NO_UNLOCK = "這份成就檔裡沒有職業解鎖。";
+
 const smallCatalog = {
   drops: [
     { id: "protector", label: "Protector of Sky" },
@@ -205,4 +211,64 @@ test("both files hide a completed class and mark partial turn-ins", () => {
   assert.equal(JSON.stringify(result).includes("Some Other Loot"), false);
   assert.equal(JSON.stringify(result).includes("Spiroc Air Totem"), false);
   assert.equal(JSON.stringify(result).includes("Pauldrons of the Blue Sky"), false);
+});
+
+test("one file still lists rows and names the missing side", () => {
+  const ach = parseAchievements(fixture("both-achievements.txt"));
+  const inv = parseInventory(fixture("both-inventory.txt"));
+  const achOnly = diff(smallCatalog, ach, null);
+  assert.deepEqual(achOnly.banners, [NO_GEAR]);
+  assert.equal(achOnly.completed, 1);
+  assert.equal(achOnly.classes[0].tests[0].status, null);
+  assert.equal(achOnly.classes[0].tests[0].lines[0].mark, null);
+  assert.equal(
+    achOnly.islands.some((section) => section.rows.some((row) => row.name === "Brass Knuckles")),
+    true,
+  );
+  const invOnly = diff(smallCatalog, null, inv);
+  assert.deepEqual(invOnly.banners, [NO_ACH]);
+  assert.equal(invOnly.completed, null);
+  assert.equal(invOnly.classes[0].name, "Beastlord");
+  const warrior = invOnly.classes.find((row) => row.name === "Warrior");
+  assert.equal(warrior.tests[0].status, "partial");
+  assert.equal(warrior.tests[0].lines[0].mark, "have");
+});
+
+test("unreadable files and a file with no class unlocks do not invent a list", () => {
+  const ach = parseAchievements(fixture("both-achievements.txt"));
+  const inv = parseInventory(fixture("both-inventory.txt"));
+  const noClass = parseAchievements(fixture("no-class.txt"));
+  const badInv = parseInventory(fixture("bad-inventory.txt"));
+  assert.deepEqual(diff(smallCatalog, null, null), {
+    banners: [],
+    showList: false,
+    completed: null,
+    classes: [],
+    islands: [],
+  });
+  assert.deepEqual(diff(smallCatalog, { ok: false }, { ok: false }).banners, [BAD_ACH, BAD_GEAR]);
+  assert.equal(diff(smallCatalog, { ok: false }, { ok: false }).showList, false);
+  assert.deepEqual(diff(smallCatalog, { ok: false }, inv).banners, [NO_ACH, BAD_ACH]);
+  assert.equal(diff(smallCatalog, { ok: false }, inv).showList, true);
+  assert.deepEqual(diff(smallCatalog, ach, badInv).banners, [NO_GEAR, BAD_GEAR]);
+  assert.deepEqual(diff(smallCatalog, noClass, inv), {
+    banners: [NO_UNLOCK],
+    showList: false,
+    completed: null,
+    classes: [],
+    islands: [],
+  });
+  assert.deepEqual(diff(smallCatalog, noClass, badInv).banners, [NO_UNLOCK, BAD_GEAR]);
+  assert.equal(diff(smallCatalog, noClass, badInv).showList, false);
+});
+
+test("a complete turn-in stays on the class tab and leaves the island tab", () => {
+  const ready = diff(
+    smallCatalog,
+    parseAchievements(fixture("ready-achievements.txt")),
+    parseInventory(fixture("ready-inventory.txt")),
+  );
+  assert.equal(ready.classes[0].name, "Beastlord");
+  assert.equal(ready.classes[0].tests[0].status, "ready");
+  assert.deepEqual(ready.islands, []);
 });
