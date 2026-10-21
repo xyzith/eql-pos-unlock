@@ -1,7 +1,7 @@
 # eql-pos-unlock
 
 日期：2026-10-21  
-狀態：待審。  
+狀態：已核准。工作清單是 `docs/superpowers/plans/2026-10-22-eql-pos-unlock.md`。  
 範圍：獨立靜態頁。使用者在瀏覽器裡選 EverQuest Legends 的成就匯出和裝備匯出，頁面列出 Plane of Sky 職業解鎖還沒交的東西。  
 不在 family-bot 裡。不讀 personal-bot，不部署到 agent。
 
