@@ -1,0 +1,1505 @@
+{
+  "drops": [
+    {
+      "id": "protector",
+      "label": "Protector of Sky"
+    },
+    {
+      "id": "gorgalosk",
+      "label": "Gorgalosk"
+    },
+    {
+      "id": "keeper",
+      "label": "Keeper of Souls"
+    },
+    {
+      "id": "spiroc",
+      "label": "The Spiroc Lord"
+    },
+    {
+      "id": "bazzt",
+      "label": "Bazzt Zzzt"
+    },
+    {
+      "id": "sister",
+      "label": "Sister of the Spire"
+    },
+    {
+      "id": "eye",
+      "label": "Eye of Veeshan"
+    },
+    {
+      "id": "isle7trash",
+      "label": "Sphinx、Drakes、Undine Spirits"
+    },
+    {
+      "id": "bees",
+      "label": "bees"
+    },
+    {
+      "id": "efreeti",
+      "label": "Noble Dojorn、Overseer of Air、the Hand of Veeshan"
+    }
+  ],
+  "tests": [
+    {
+      "class": "Bard",
+      "npc": "Cilin Spellsinger",
+      "rewards": [
+        "Amulet of the Fae"
+      ],
+      "rune": "Wind Rune Caza",
+      "items": [
+        {
+          "name": "Amulet of Woven Hair",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Bard",
+      "npc": "Cilin Spellsinger",
+      "rewards": [
+        "Denon’s Horn of Disaster"
+      ],
+      "rune": "Wind Rune Fana",
+      "items": [
+        {
+          "name": "Efreeti War Horn",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Glowing Diamond",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Bard",
+      "npc": "Cilin Spellsinger",
+      "rewards": [
+        "Ervaj’s Flute of Flight"
+      ],
+      "rune": "Wind Rune Azia",
+      "items": [
+        {
+          "name": "Crude Wooden Flute",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Bard",
+      "npc": "Cilin Spellsinger",
+      "rewards": [
+        "Mantle of the Songweaver"
+      ],
+      "rune": "Wind Rune Kala",
+      "items": [
+        {
+          "name": "Light Woolen Mantle",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Bard",
+      "npc": "Cilin Spellsinger",
+      "rewards": [
+        "Mask of Song"
+      ],
+      "rune": "Wind Rune Meda",
+      "items": [
+        {
+          "name": "Light Woolen Mask",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Bard",
+      "npc": "Cilin Spellsinger",
+      "rewards": [
+        "Spear of Harmony"
+      ],
+      "rune": "Wind Rune Heda",
+      "items": [
+        {
+          "name": "Efreeti War Spear",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Nebulous Diamond",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Beastlord",
+      "npc": "Animist Kratho",
+      "rewards": [
+        "Azarack Skin Wristwraps"
+      ],
+      "rune": "Wind Rune Heda",
+      "items": [
+        {
+          "name": "Azarack Skin",
+          "drop": "protector"
+        }
+      ]
+    },
+    {
+      "class": "Beastlord",
+      "npc": "Animist Kratho",
+      "rewards": [
+        "Diaphonous Waistband"
+      ],
+      "rune": "Wind Rune Geza",
+      "items": [
+        {
+          "name": "Silken Wrap",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Beastlord",
+      "npc": "Animist Kratho",
+      "rewards": [
+        "Griffin-Hide Armguards"
+      ],
+      "rune": "Wind Rune Kala",
+      "items": [
+        {
+          "name": "Leather Cord",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Beastlord",
+      "npc": "Animist Kratho",
+      "rewards": [
+        "Spiroc Beak Earcuff"
+      ],
+      "rune": "Wind Rune Beza",
+      "items": [
+        {
+          "name": "Spiroc Elder’s Totem",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Beastlord",
+      "npc": "Animist Kratho",
+      "rewards": [
+        "Windhowl",
+        "Spirit Render"
+      ],
+      "rune": "Wind Rune Izah",
+      "items": [
+        {
+          "name": "Brass Knuckles",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Mithril Bands",
+          "drop": "eye"
+        },
+        {
+          "name": "Sphinx Claw",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Berserker",
+      "npc": "Stragen The Hewer",
+      "rewards": [
+        "Blood-Drawn Runes"
+      ],
+      "rune": "Wind Rune Lena",
+      "items": [
+        {
+          "name": "Azarack Blood",
+          "drop": "protector"
+        }
+      ]
+    },
+    {
+      "class": "Berserker",
+      "npc": "Stragen The Hewer",
+      "rewards": [
+        "Cudgel of the Fool"
+      ],
+      "rune": "Wind Rune Dena",
+      "items": [
+        {
+          "name": "Efreeti Great Staff",
+          "drop": "eye"
+        },
+        {
+          "name": "Jester’s Mask",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Berserker",
+      "npc": "Stragen The Hewer",
+      "rewards": [
+        "Molten Coil"
+      ],
+      "rune": "Wind Rune Ena",
+      "items": [
+        {
+          "name": "Pulsating Ruby",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Berserker",
+      "npc": "Stragen The Hewer",
+      "rewards": [
+        "Sash of Ferocity"
+      ],
+      "rune": "Wind Rune Ozah",
+      "items": [
+        {
+          "name": "High Quality Raiment",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Berserker",
+      "npc": "Stragen The Hewer",
+      "rewards": [
+        "Shroud of the Sky"
+      ],
+      "rune": "Wind Rune Azia",
+      "items": [
+        {
+          "name": "Feathered Cape",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Berserker",
+      "npc": "Stragen The Hewer",
+      "rewards": [
+        "Skycleaver"
+      ],
+      "rune": "Wind Rune Jaka",
+      "items": [
+        {
+          "name": "Efreeti Standard",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Djinni War Blade",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Cleric",
+      "npc": "Josin Faithbringer",
+      "rewards": [
+        "Aegis of the Wind"
+      ],
+      "rune": "Wind Rune Meda",
+      "items": [
+        {
+          "name": "Small Shield",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Cleric",
+      "npc": "Josin Faithbringer",
+      "rewards": [
+        "Baton of the Sky"
+      ],
+      "rune": "Wind Rune Ena",
+      "items": [
+        {
+          "name": "Efreeti Standard",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Mithril Bands",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Cleric",
+      "npc": "Josin Faithbringer",
+      "rewards": [
+        "Necklace of Resolution"
+      ],
+      "rune": "Wind Rune Neza",
+      "items": [
+        {
+          "name": "Silvered Spiroc Necklace",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Cleric",
+      "npc": "Josin Faithbringer",
+      "rewards": [
+        "Pauldrons of Piety"
+      ],
+      "rune": "Wind Rune Caza",
+      "items": [
+        {
+          "name": "Shiny Pauldrons",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Cleric",
+      "npc": "Josin Faithbringer",
+      "rewards": [
+        "Theurgist’s Star"
+      ],
+      "rune": "Wind Rune Kala",
+      "items": [
+        {
+          "name": "Djinni Aura",
+          "drop": "sister"
+        },
+        {
+          "name": "Efreeti Mace",
+          "drop": "efreeti"
+        }
+      ]
+    },
+    {
+      "class": "Cleric",
+      "npc": "Josin Faithbringer",
+      "rewards": [
+        "Truewind Earring"
+      ],
+      "rune": "Wind Rune Lena",
+      "items": [
+        {
+          "name": "Silver Hoop",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Druid",
+      "npc": "Strandar Pinemist",
+      "rewards": [
+        "Drake-Hide Mask"
+      ],
+      "rune": "Wind Rune Meda",
+      "items": [
+        {
+          "name": "Worn Leather Mask",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Druid",
+      "npc": "Strandar Pinemist",
+      "rewards": [
+        "Espri"
+      ],
+      "rune": "Wind Rune Izah",
+      "items": [
+        {
+          "name": "Efreeti Scimitar",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Storm Sky Opal",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Druid",
+      "npc": "Strandar Pinemist",
+      "rewards": [
+        "Honeycomb Belt"
+      ],
+      "rune": "Wind Rune Dena",
+      "items": [
+        {
+          "name": "Divine Honeycomb",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Druid",
+      "npc": "Strandar Pinemist",
+      "rewards": [
+        "Nature Walker’s Mantle"
+      ],
+      "rune": "Wind Rune Kala",
+      "items": [
+        {
+          "name": "Mantle of Woven Grass",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Druid",
+      "npc": "Strandar Pinemist",
+      "rewards": [
+        "Shillelagh"
+      ],
+      "rune": "Wind Rune Azia",
+      "items": [
+        {
+          "name": "Spiroc Battle Staff",
+          "drop": "spiroc"
+        },
+        {
+          "name": "Efreeti Statuette",
+          "drop": "efreeti"
+        }
+      ]
+    },
+    {
+      "class": "Druid",
+      "npc": "Strandar Pinemist",
+      "rewards": [
+        "Spiroc Banisher Focus"
+      ],
+      "rune": "Wind Rune Ena",
+      "items": [
+        {
+          "name": "Ethereal Ruby",
+          "drop": "sister"
+        },
+        {
+          "name": "Spiroc Elder’s Totem",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Enchanter",
+      "npc": "Enchanter Jolas",
+      "rewards": [
+        "Earring of Displacement"
+      ],
+      "rune": "Wind Rune Caza",
+      "items": [
+        {
+          "name": "Adamantium Earring",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Enchanter",
+      "npc": "Enchanter Jolas",
+      "rewards": [
+        "Ivory Mask"
+      ],
+      "rune": "Wind Rune Beza",
+      "items": [
+        {
+          "name": "Silken Mask",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Enchanter",
+      "npc": "Enchanter Jolas",
+      "rewards": [
+        "Necklace of Whispering Winds"
+      ],
+      "rune": "Wind Rune Fana",
+      "items": [
+        {
+          "name": "Glowing Necklace",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Enchanter",
+      "npc": "Enchanter Jolas",
+      "rewards": [
+        "Rod of the Protecting Winds"
+      ],
+      "rune": "Wind Rune Izah",
+      "items": [
+        {
+          "name": "Efreeti Wind Staff",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Large Sky Sapphire",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Enchanter",
+      "npc": "Enchanter Jolas",
+      "rewards": [
+        "Sphinx Hair Cord"
+      ],
+      "rune": "Wind Rune Meda",
+      "items": [
+        {
+          "name": "Finely Woven Cloth Cord",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Enchanter",
+      "npc": "Enchanter Jolas",
+      "rewards": [
+        "Wind Walker’s Mantle"
+      ],
+      "rune": "Wind Rune Ozah",
+      "items": [
+        {
+          "name": "Light Cloth Mantle",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Magician",
+      "npc": "Magus Frinon",
+      "rewards": [
+        "Bracelet of Clarification"
+      ],
+      "rune": "Wind Rune Lena",
+      "items": [
+        {
+          "name": "Feathered Cape",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Magician",
+      "npc": "Magus Frinon",
+      "rewards": [
+        "Drake-Hide Amice"
+      ],
+      "rune": "Wind Rune Dena",
+      "items": [
+        {
+          "name": "Large Diamond",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Magician",
+      "npc": "Magus Frinon",
+      "rewards": [
+        "Duennan Shielding Ring"
+      ],
+      "rune": "Wind Rune Ena",
+      "items": [
+        {
+          "name": "Golden Efreeti Ring",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Magician",
+      "npc": "Magus Frinon",
+      "rewards": [
+        "Gold White Pendant"
+      ],
+      "rune": "Wind Rune Azia",
+      "items": [
+        {
+          "name": "Golden Coffer",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Magician",
+      "npc": "Magus Frinon",
+      "rewards": [
+        "Mask of Empowerment"
+      ],
+      "rune": "Wind Rune Neza",
+      "items": [
+        {
+          "name": "Ceramic Mask",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Magician",
+      "npc": "Magus Frinon",
+      "rewards": [
+        "Staff of Elemental Mastery: Air"
+      ],
+      "rune": "Wind Rune Heda",
+      "items": [
+        {
+          "name": "Crown of Elemental Mastery",
+          "drop": "isle7trash"
+        },
+        {
+          "name": "Djinni Stave",
+          "drop": "sister"
+        },
+        {
+          "name": "Large Opal",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Magician",
+      "npc": "Magus Frinon",
+      "rewards": [
+        "Staff of the Magister"
+      ],
+      "rune": "Wind Rune Jaka",
+      "items": [
+        {
+          "name": "Efreeti Magi Staff",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Hazy Opal",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Monk",
+      "npc": "Holwin",
+      "rewards": [
+        "Back Straps of Mastery"
+      ],
+      "rune": "Wind Rune Caza",
+      "items": [
+        {
+          "name": "Silken Strands",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Monk",
+      "npc": "Holwin",
+      "rewards": [
+        "Golden Sash of Tranquility"
+      ],
+      "rune": "Wind Rune Lena",
+      "items": [
+        {
+          "name": "Tear of Quellious",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Monk",
+      "npc": "Holwin",
+      "rewards": [
+        "Sandals of Alacrity"
+      ],
+      "rune": "Wind Rune Jaka",
+      "items": [
+        {
+          "name": "Dove Slippers",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Monk",
+      "npc": "Holwin",
+      "rewards": [
+        "Ton Po’s Eye Patch"
+      ],
+      "rune": "Wind Rune Geza",
+      "items": [
+        {
+          "name": "Cracked Leather Eyepatch",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Monk",
+      "npc": "Holwin",
+      "rewards": [
+        "Ton Po’s Shoulder Wraps"
+      ],
+      "rune": "Wind Rune Beza",
+      "items": [
+        {
+          "name": "Silken Wrap",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Monk",
+      "npc": "Holwin",
+      "rewards": [
+        "Wu’s Fist of Mastery"
+      ],
+      "rune": "Wind Rune Neza",
+      "items": [
+        {
+          "name": "Brass Knuckles",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Nebulous Sapphire",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Necromancer",
+      "npc": "Drakis Bloodcaster",
+      "rewards": [
+        "Band of Wailing Winds"
+      ],
+      "rune": "Wind Rune Caza",
+      "items": [
+        {
+          "name": "Ring of Veeshan",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Necromancer",
+      "npc": "Drakis Bloodcaster",
+      "rewards": [
+        "Bloodsoaked Raiment"
+      ],
+      "rune": "Wind Rune Ozah",
+      "items": [
+        {
+          "name": "Fine Cloth Raiment",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Necromancer",
+      "npc": "Drakis Bloodcaster",
+      "rewards": [
+        "Bloody Griffon-Hide Wrist Guard"
+      ],
+      "rune": "Wind Rune Lena",
+      "items": [
+        {
+          "name": "Griffon’s Beak",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Necromancer",
+      "npc": "Drakis Bloodcaster",
+      "rewards": [
+        "Cloak of Spiroc Feathers"
+      ],
+      "rune": "Wind Rune Neza",
+      "items": [
+        {
+          "name": "Black Silk Cape",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Necromancer",
+      "npc": "Drakis Bloodcaster",
+      "rewards": [
+        "Gorgon Head Staff"
+      ],
+      "rune": "Wind Rune Fana",
+      "items": [
+        {
+          "name": "Efreeti Great Staff",
+          "drop": "eye"
+        },
+        {
+          "name": "Gorgon Head",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Necromancer",
+      "npc": "Drakis Bloodcaster",
+      "rewards": [
+        "Sphinx Heart Amulet"
+      ],
+      "rune": "Wind Rune Azia",
+      "items": [
+        {
+          "name": "Pulsating Ruby",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Paladin",
+      "npc": "Dason Goldblade",
+      "rewards": [
+        "Aldryn, Blade of the Ocean"
+      ],
+      "rune": "Wind Rune Ozah",
+      "items": [
+        {
+          "name": "Bixie Sword Blade",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Paladin",
+      "npc": "Dason Goldblade",
+      "rewards": [
+        "Girdle of Faith"
+      ],
+      "rune": "Wind Rune Lena",
+      "items": [
+        {
+          "name": "Ivory Sky Diamond",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Paladin",
+      "npc": "Dason Goldblade",
+      "rewards": [
+        "Thelvorn, Blade of Light"
+      ],
+      "rune": "Wind Rune Geza",
+      "items": [
+        {
+          "name": "Golden Hilt",
+          "drop": "isle7trash"
+        },
+        {
+          "name": "Sphinx Claw",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Paladin",
+      "npc": "Dason Goldblade",
+      "rewards": [
+        "Truvinan"
+      ],
+      "rune": "Wind Rune Izah",
+      "items": [
+        {
+          "name": "Efreeti Zweihander",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Large Sky Diamond",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Ranger",
+      "npc": "Ranger Spirit",
+      "rewards": [
+        "Arydryidriyorn"
+      ],
+      "rune": "Wind Rune Ena",
+      "items": [
+        {
+          "name": "Efreeti Long Sword",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Circlet of Brambles",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Ranger",
+      "npc": "Ranger Spirit",
+      "rewards": [
+        "Dark Cloak of the Sky"
+      ],
+      "rune": "Wind Rune Neza",
+      "items": [
+        {
+          "name": "Fine Velvet Cloak",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Ranger",
+      "npc": "Ranger Spirit",
+      "rewards": [
+        "Earthshaker’s Mantle"
+      ],
+      "rune": "Wind Rune Kala",
+      "items": [
+        {
+          "name": "Spiroc Earth Totem",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Ranger",
+      "npc": "Ranger Spirit",
+      "rewards": [
+        "Griffon Talon Necklace"
+      ],
+      "rune": "Wind Rune Meda",
+      "items": [
+        {
+          "name": "Griffon Talon",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Ranger",
+      "npc": "Ranger Spirit",
+      "rewards": [
+        "Thunderforged Earring"
+      ],
+      "rune": "Wind Rune Azia",
+      "items": [
+        {
+          "name": "White Gold Earring",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Ranger",
+      "npc": "Ranger Spirit",
+      "rewards": [
+        "Windstriker"
+      ],
+      "rune": "Wind Rune Heda",
+      "items": [
+        {
+          "name": "Efreeti War Bow",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Shimmering Pearl",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Rogue",
+      "npc": "Thalik Silenthand",
+      "rewards": [
+        "Crystal Mask"
+      ],
+      "rune": "Wind Rune Dena",
+      "items": [
+        {
+          "name": "Jester’s Mask",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Rogue",
+      "npc": "Thalik Silenthand",
+      "rewards": [
+        "Griffon Wing Spaulders"
+      ],
+      "rune": "Wind Rune Ena",
+      "items": [
+        {
+          "name": "Spiroc Sky Totem",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Rogue",
+      "npc": "Thalik Silenthand",
+      "rewards": [
+        "Renard’s Belt of Quickness"
+      ],
+      "rune": "Wind Rune Izah",
+      "items": [
+        {
+          "name": "Sphinxian Circlet",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Rogue",
+      "npc": "Thalik Silenthand",
+      "rewards": [
+        "Shimmering Bracer of Protection"
+      ],
+      "rune": "Wind Rune Geza",
+      "items": [
+        {
+          "name": "Fine Wool Cloak",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Rogue",
+      "npc": "Thalik Silenthand",
+      "rewards": [
+        "Thornstinger"
+      ],
+      "rune": "Wind Rune Jaka",
+      "items": [
+        {
+          "name": "Bixie Stinger",
+          "drop": "bazzt"
+        },
+        {
+          "name": "Bloodsky Sapphire",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Rogue",
+      "npc": "Thalik Silenthand",
+      "rewards": [
+        "Wispy Choker of Vigor"
+      ],
+      "rune": "Wind Rune Ozah",
+      "items": [
+        {
+          "name": "Inlaid Choker",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Shadow Knight",
+      "npc": "Sarkis Ebonblade",
+      "rewards": [
+        "Amulet of the Sphinx Eye"
+      ],
+      "rune": "Wind Rune Ozah",
+      "items": [
+        {
+          "name": "Finely Crafted Amulet",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Shadow Knight",
+      "npc": "Sarkis Ebonblade",
+      "rewards": [
+        "Blood Sky Face Plate"
+      ],
+      "rune": "Wind Rune Fana",
+      "items": [
+        {
+          "name": "Rusted Pauldrons",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Shadow Knight",
+      "npc": "Sarkis Ebonblade",
+      "rewards": [
+        "Crimson Ring of the Djinni"
+      ],
+      "rune": "Wind Rune Beza",
+      "items": [
+        {
+          "name": "Silvery Ring",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Shadow Knight",
+      "npc": "Sarkis Ebonblade",
+      "rewards": [
+        "Khyldorn the Blood Drinker"
+      ],
+      "rune": "Wind Rune Kala",
+      "items": [
+        {
+          "name": "Blood Sky Ruby",
+          "drop": "eye"
+        },
+        {
+          "name": "Efreeti War Axe",
+          "drop": "efreeti"
+        }
+      ]
+    },
+    {
+      "class": "Shadow Knight",
+      "npc": "Sarkis Ebonblade",
+      "rewards": [
+        "Obtenebrate Mithril Guard"
+      ],
+      "rune": "Wind Rune Heda",
+      "items": [
+        {
+          "name": "Efreeti War Shield",
+          "drop": "efreeti"
+        }
+      ]
+    },
+    {
+      "class": "Shadow Knight",
+      "npc": "Sarkis Ebonblade",
+      "rewards": [
+        "Pearlescent Pauldrons"
+      ],
+      "rune": "Wind Rune Izah",
+      "items": [
+        {
+          "name": "Fae Pauldrons",
+          "drop": "eye"
+        },
+        {
+          "name": "Sphinxian Ring",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Shadow Knight",
+      "npc": "Sarkis Ebonblade",
+      "rewards": [
+        "Pegasus-Hide Belt"
+      ],
+      "rune": "Wind Rune Dena",
+      "items": [
+        {
+          "name": "Finely Woven Cloth Belt",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Shaman",
+      "npc": "Medicine Man Veetra",
+      "rewards": [
+        "Amulet of the Fang"
+      ],
+      "rune": "Wind Rune Meda",
+      "items": [
+        {
+          "name": "Leather Cord",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Shaman",
+      "npc": "Medicine Man Veetra",
+      "rewards": [
+        "Bracelet of the Spirits"
+      ],
+      "rune": "Wind Rune Kala",
+      "items": [
+        {
+          "name": "Ceremonial Belt",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Shaman",
+      "npc": "Medicine Man Veetra",
+      "rewards": [
+        "Fairy-Hide Mantle"
+      ],
+      "rune": "Wind Rune Beza",
+      "items": [
+        {
+          "name": "Light Damask Mantle",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Shaman",
+      "npc": "Medicine Man Veetra",
+      "rewards": [
+        "Garduk"
+      ],
+      "rune": "Wind Rune Geza",
+      "items": [
+        {
+          "name": "Efreeti War Maul",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Symbol of Veeshan",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Shaman",
+      "npc": "Medicine Man Veetra",
+      "rewards": [
+        "Vermilion Sky Ring"
+      ],
+      "rune": "Wind Rune Heda",
+      "items": [
+        {
+          "name": "Bixie Essence",
+          "drop": "bees"
+        },
+        {
+          "name": "Spiritualist`s Ring",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Shaman",
+      "npc": "Medicine Man Veetra",
+      "rewards": [
+        "Warhammer of the Wind"
+      ],
+      "rune": "Wind Rune Ena",
+      "items": [
+        {
+          "name": "Corrosive Venom",
+          "drop": "bazzt"
+        },
+        {
+          "name": "Efreeti War Club",
+          "drop": "efreeti"
+        }
+      ]
+    },
+    {
+      "class": "Warrior",
+      "npc": "Torgon Blademaster",
+      "rewards": [
+        "Azure Ruby Ring"
+      ],
+      "rune": "Wind Rune Neza",
+      "items": [
+        {
+          "name": "Azure Ring",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Warrior",
+      "npc": "Torgon Blademaster",
+      "rewards": [
+        "Belt of the Four Winds"
+      ],
+      "rune": "Wind Rune Fana",
+      "items": [
+        {
+          "name": "Efreeti Belt",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Wind Tablet",
+          "drop": "bazzt"
+        }
+      ]
+    },
+    {
+      "class": "Warrior",
+      "npc": "Torgon Blademaster",
+      "rewards": [
+        "Dagas"
+      ],
+      "rune": "Wind Rune Jaka",
+      "items": [
+        {
+          "name": "Djinni War Blade",
+          "drop": "sister"
+        },
+        {
+          "name": "Gem of Invigoration",
+          "drop": "isle7trash"
+        }
+      ]
+    },
+    {
+      "class": "Warrior",
+      "npc": "Torgon Blademaster",
+      "rewards": [
+        "Fangol"
+      ],
+      "rune": "Wind Rune Dena",
+      "items": [
+        {
+          "name": "Efreeti Battle Axe",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Ethereal Emerald",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Warrior",
+      "npc": "Torgon Blademaster",
+      "rewards": [
+        "Pauldrons of the Blue Sky"
+      ],
+      "rune": "Wind Rune Beza",
+      "items": [
+        {
+          "name": "Spiroc Air Totem",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Warrior",
+      "npc": "Torgon Blademaster",
+      "rewards": [
+        "Runed Wind Amulet"
+      ],
+      "rune": "Wind Rune Azia",
+      "items": [
+        {
+          "name": "Stone Amulet",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Wizard",
+      "npc": "Wizard Schrock",
+      "rewards": [
+        "Al`Kabor’s Cap of Binding"
+      ],
+      "rune": "Wind Rune Fana",
+      "items": [
+        {
+          "name": "Woven Skull Cap",
+          "drop": "keeper"
+        }
+      ]
+    },
+    {
+      "class": "Wizard",
+      "npc": "Wizard Schrock",
+      "rewards": [
+        "Amulet of the Void"
+      ],
+      "rune": "Wind Rune Jaka",
+      "items": [
+        {
+          "name": "Amethyst Amulet",
+          "drop": "sister"
+        }
+      ]
+    },
+    {
+      "class": "Wizard",
+      "npc": "Wizard Schrock",
+      "rewards": [
+        "Augmentor’s Mask"
+      ],
+      "rune": "Wind Rune Dena",
+      "items": [
+        {
+          "name": "Grey Damask Cloak",
+          "drop": "gorgalosk"
+        }
+      ]
+    },
+    {
+      "class": "Wizard",
+      "npc": "Wizard Schrock",
+      "rewards": [
+        "Nargon’s Staff"
+      ],
+      "rune": "Wind Rune Caza",
+      "items": [
+        {
+          "name": "Efreeti War Staff",
+          "drop": "efreeti"
+        },
+        {
+          "name": "Large Sky Lapis",
+          "drop": "eye"
+        }
+      ]
+    },
+    {
+      "class": "Wizard",
+      "npc": "Wizard Schrock",
+      "rewards": [
+        "Raiment of Thunder"
+      ],
+      "rune": "Wind Rune Geza",
+      "items": [
+        {
+          "name": "High Quality Raiment",
+          "drop": "spiroc"
+        }
+      ]
+    },
+    {
+      "class": "Wizard",
+      "npc": "Wizard Schrock",
+      "rewards": [
+        "Solidate Mithril Ring"
+      ],
+      "rune": "Wind Rune Izah",
+      "items": [
+        {
+          "name": "Box of Winds",
+          "drop": "bazzt"
+        },
+        {
+          "name": "Efreeti Statuette",
+          "drop": "efreeti"
+        }
+      ]
+    }
+  ]
+}

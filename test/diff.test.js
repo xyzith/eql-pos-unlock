@@ -272,3 +272,64 @@ test("a complete turn-in stays on the class tab and leaves the island tab", () =
   assert.equal(ready.classes[0].tests[0].status, "ready");
   assert.deepEqual(ready.islands, []);
 });
+
+test("catalog has the sixteen classes and one drop per item", () => {
+  const catalog = JSON.parse(readFileSync(new URL("../catalog.json", import.meta.url), "utf8"));
+  const expected = [
+    ["Bard", 6, "Cilin Spellsinger"],
+    ["Beastlord", 5, "Animist Kratho"],
+    ["Berserker", 6, "Stragen The Hewer"],
+    ["Cleric", 6, "Josin Faithbringer"],
+    ["Druid", 6, "Strandar Pinemist"],
+    ["Enchanter", 6, "Enchanter Jolas"],
+    ["Magician", 7, "Magus Frinon"],
+    ["Monk", 6, "Holwin"],
+    ["Necromancer", 6, "Drakis Bloodcaster"],
+    ["Paladin", 4, "Dason Goldblade"],
+    ["Ranger", 6, "Ranger Spirit"],
+    ["Rogue", 6, "Thalik Silenthand"],
+    ["Shadow Knight", 7, "Sarkis Ebonblade"],
+    ["Shaman", 6, "Medicine Man Veetra"],
+    ["Warrior", 6, "Torgon Blademaster"],
+    ["Wizard", 6, "Wizard Schrock"],
+  ];
+  assert.deepEqual(
+    catalog.drops.map((drop) => drop.id),
+    ["protector", "gorgalosk", "keeper", "spiroc", "bazzt", "sister", "eye", "isle7trash", "bees", "efreeti"],
+  );
+  assert.equal(catalog.tests.length, 95);
+  const counts = new Map();
+  const rewards = new Set();
+  const itemDrops = new Map();
+  for (const row of catalog.tests) {
+    counts.set(row.class, (counts.get(row.class) ?? 0) + 1);
+    assert.equal(row.npc, expected.find((item) => item[0] === row.class)[2]);
+    assert.equal(typeof row.rune, "string");
+    assert.equal(row.rune.startsWith("Wind Rune "), true);
+    assert.ok(row.items.length >= 1);
+    for (const reward of row.rewards) {
+      assert.equal(rewards.has(reward), false);
+      rewards.add(reward);
+    }
+    for (const item of row.items) {
+      assert.equal(catalog.drops.some((drop) => drop.id === item.drop), true);
+      const previous = itemDrops.get(item.name);
+      if (previous === undefined) itemDrops.set(item.name, item.drop);
+      else assert.equal(previous, item.drop);
+    }
+  }
+  assert.deepEqual(
+    expected.map(([name, count]) => [name, counts.get(name)]),
+    expected.map(([name, count]) => [name, count]),
+  );
+  const windhowl = catalog.tests.find((row) => row.rewards.includes("Windhowl"));
+  assert.deepEqual(windhowl.rewards, ["Windhowl", "Spirit Render"]);
+  assert.deepEqual(
+    windhowl.items.map((item) => item.name),
+    ["Brass Knuckles", "Mithril Bands", "Sphinx Claw"],
+  );
+  const statue = catalog.tests.flatMap((row) => row.items).find((item) => item.name === "Efreeti Statuette");
+  assert.equal(statue.drop, "efreeti");
+  const totem = catalog.tests.flatMap((row) => row.items).find((item) => item.name === "Spiroc Air Totem");
+  assert.equal(totem.drop, "spiroc");
+});
