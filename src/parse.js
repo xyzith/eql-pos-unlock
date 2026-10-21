@@ -50,3 +50,35 @@ export function parseAchievements(text) {
   if (!saw) return { ok: false };
   return { ok: true, classes };
 }
+
+function integer(raw) {
+  return /^\d+$/.test(raw);
+}
+
+export function parseInventory(text) {
+  const body = String(text).replace(/^\uFEFF/, "").replace(/\r\n/g, "\n").replace(/\r/g, "\n");
+  const lines = body.split("\n");
+  if (cells(lines[0] ?? "").join("\t") !== "Location\tName\tID\tCount\tSlots") {
+    return { ok: false };
+  }
+  const names = [];
+  let i = 1;
+  for (; i < lines.length; i += 1) {
+    if (lines[i].trim() === "") break;
+    const parts = cells(lines[i]);
+    if (parts.length !== 5) return { ok: false };
+    const name = parts[1];
+    if (!integer(parts[2]) || !integer(parts[3])) return { ok: false };
+    if (name !== "Empty" && Number(parts[3]) > 0) names.push(name);
+  }
+  while (i < lines.length && lines[i].trim() === "") i += 1;
+  if (i >= lines.length) return { ok: true, names };
+  if (cells(lines[i]).join("\t") !== "KeyRing\tName\tID") return { ok: false };
+  for (i += 1; i < lines.length; i += 1) {
+    if (lines[i].trim() === "") continue;
+    const parts = cells(lines[i]);
+    if (parts.length !== 3) return { ok: false };
+    if (parts[1] !== "Empty") names.push(parts[1]);
+  }
+  return { ok: true, names };
+}
