@@ -9,9 +9,10 @@
   <body>
     <main>
       <h1>Plane of Sky 職業解鎖</h1>
-      <p class="local">這兩個檔只在這台瀏覽器裡讀，不會送出。</p>
+      <p class="local">這兩個檔只在這台瀏覽器裡讀，不會送出。上次選的檔會留在這台瀏覽器，再上傳同一欄會換成新的。</p>
       <p>成就檔：遊戲裡打 <code>/outputfile achievements</code>，不要加 Complete。安裝目錄會出現 <code>*-Achievements.txt</code>。</p>
-      <p>裝備檔：<code>/outputfile inventory</code>，也就是 <code>/output inventory</code>。安裝目錄會出現 <code>*-Inventory.txt</code>。銀行和 KeyRing 都算持有。畫面上的名字是要交的材料，銀行裡的成品不會把材料算成已有。</p>
+      <p>裝備檔：<code>/outputfile inventory</code>，也就是 <code>/output inventory</code>。安裝目錄會出現 <code>*-Inventory.txt</code>。銀行和 KeyRing 都算持有。身上有這筆試煉的成品，這筆就算解過。材料不會因為銀行裡有成品就變成已有。成品刪掉之後，要靠成就檔才知道。</p>
+      <p><span class="eq-item">道具</span>　<span class="eq-gear">裝備</span>　<span class="eq-mob">怪物</span></p>
       <label>成就清單 <input id="ach" type="file" accept=".txt"></label>
       <p id="ach-name"></p>
       <label>裝備清單 <input id="inv" type="file" accept=".txt"></label>

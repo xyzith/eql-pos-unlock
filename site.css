@@ -30,3 +30,15 @@ button[aria-selected="true"] {
 .need {
   color: #e7a0a0;
 }
+.eq-item {
+  color: #e0b15a;
+}
+.eq-gear {
+  color: #e4d8ff;
+}
+.eq-mob {
+  color: #d08080;
+}
+.eq-npc {
+  color: #c4a6e0;
+}

@@ -208,11 +208,10 @@ test("both files hide a completed class and mark partial turn-ins", () => {
   assert.equal(result.classes[2].tests[0].lines[0].name, "Efreeti War Spear");
   assert.equal(result.classes[2].tests[0].lines[0].mark, "have");
   assert.deepEqual(result.classes[3].tests.map((row) => row.unmatched), [
-    null,
     "目錄沒有：Obtain Not In Catalog.",
   ]);
-  assert.equal(result.classes[3].tests[1].status, null);
-  assert.deepEqual(result.classes[3].tests[1].lines, []);
+  assert.equal(result.classes[3].tests[0].status, null);
+  assert.deepEqual(result.classes[3].tests[0].lines, []);
   assert.equal(result.classes[4].note, "試煉都勾了，職業列仍是未完成。");
   assert.deepEqual(result.classes[4].tests, []);
   assert.equal(result.classes[4].npc, null);
@@ -220,18 +219,22 @@ test("both files hide a completed class and mark partial turn-ins", () => {
   assert.equal(result.classes[5].npc, null);
   assert.deepEqual(
     result.islands.map((section) => section.title),
-    ["Keeper of Souls", "Bazzt Zzzt", "Sister of the Spire", "雜兵"],
+    ["Keeper of Souls", "Sister of the Spire", "雜兵"],
   );
-  const claw = result.islands[2].rows[0];
+  const claw = result.islands[1].rows[0];
   assert.equal(claw.name, "Sphinx Claw");
   assert.deepEqual(claw.holders, [
     { class: "Beastlord", rewards: ["Windhowl", "Spirit Render"] },
   ]);
-  const runeNames = result.islands[3].rows.map((row) => row.name);
-  assert.deepEqual(runeNames, ["Wind Rune Izah", "Wind Rune Meda", "Wind Rune Kala", "Wind Rune Fana"]);
-  assert.equal(JSON.stringify(result).includes("Some Other Loot"), false);
-  assert.equal(JSON.stringify(result).includes("Spiroc Air Totem"), false);
-  assert.equal(JSON.stringify(result).includes("Pauldrons of the Blue Sky"), false);
+  const runeNames = result.islands[2].rows.map((row) => row.name);
+  assert.deepEqual(runeNames, ["Wind Rune Izah", "Wind Rune Meda", "Wind Rune Kala"]);
+  const text = JSON.stringify(result);
+  assert.equal(text.includes("Some Other Loot"), false);
+  assert.equal(text.includes("Spiroc Air Totem"), false);
+  assert.equal(text.includes("Pauldrons of the Blue Sky"), false);
+  assert.equal(text.includes("Al'Kabor's Cap of Binding"), false);
+  assert.equal(text.includes("Some Item"), false);
+  assert.equal(text.includes("Wind Rune Fana"), false);
 });
 
 test("one file still lists rows and names the missing side", () => {
@@ -248,11 +251,92 @@ test("one file still lists rows and names the missing side", () => {
   );
   const invOnly = diff(smallCatalog, null, inv);
   assert.deepEqual(invOnly.banners, [NO_ACH]);
-  assert.equal(invOnly.completed, null);
+  assert.equal(invOnly.completed, 2);
   assert.equal(invOnly.classes[0].name, "Beastlord");
-  const warrior = invOnly.classes.find((row) => row.name === "Warrior");
-  assert.equal(warrior.tests[0].status, "partial");
-  assert.equal(warrior.tests[0].lines[0].mark, "have");
+  assert.equal(invOnly.classes[0].tests[0].status, "partial");
+  assert.equal(invOnly.classes.find((row) => row.name === "Warrior"), undefined);
+  assert.equal(invOnly.classes.find((row) => row.name === "Wizard"), undefined);
+});
+
+test("holding the reward finishes that trial and leaves its components unmarked", () => {
+  const heldReward = parseInventory(
+    [
+      HEADER,
+      "Bank1\tAmulet of the Fae\t1\t1\t11",
+      "Bank2\tWindhowl +2\t2\t1\t11",
+      "Bank3\tGriffon Talon Necklace\t3\t1\t11",
+      "",
+    ].join("\n"),
+  );
+  const catalog = {
+    drops: smallCatalog.drops,
+    tests: [
+      smallCatalog.tests[0],
+      smallCatalog.tests[1],
+      {
+        class: "Bard",
+        npc: "Cilin Spellsinger",
+        rewards: ["Amulet of the Fae"],
+        rune: "Wind Rune Caza",
+        items: [{ name: "Amulet of Woven Hair", drop: "bazzt" }],
+      },
+      smallCatalog.tests[4],
+    ],
+  };
+  const onlyGear = diff(catalog, null, heldReward);
+  assert.equal(onlyGear.completed, 3);
+  assert.deepEqual(onlyGear.classes.map((row) => row.name), ["Warrior"]);
+  assert.equal(onlyGear.classes[0].tests[0].status, "none");
+  assert.equal(onlyGear.classes[0].tests[0].lines.every((line) => line.mark === "need"), true);
+  const text = JSON.stringify(onlyGear);
+  assert.equal(text.includes("Amulet of Woven Hair"), false);
+  assert.equal(text.includes("Amulet of the Fae"), false);
+  assert.equal(text.includes("Wind Rune Caza"), false);
+  assert.equal(text.includes("Griffon Talon"), false);
+  assert.equal(text.includes("Sphinx Claw"), false);
+  const talon = parseInventory([HEADER, "Bank1\tGriffon Talon\t1\t1\t11", ""].join("\n"));
+  const component = diff(smallCatalog, null, talon);
+  const ranger = component.classes.find((row) => row.name === "Ranger");
+  assert.equal(ranger.tests[0].status, "partial");
+  assert.equal(ranger.tests[0].lines[0].mark, "have");
+  assert.equal(component.completed, 0);
+  const ach = parseAchievements(
+    [
+      "C\tPrimary Class Unlock - Warrior",
+      "I\t\tObtain Pauldrons of the Blue Sky.",
+      "I\tPrimary Class Unlock - Ranger",
+      "I\t\tObtain Griffon Talon Necklace.",
+      "I\tPrimary Class Unlock - Beastlord",
+      "I\t\tObtain Windhowl and Spirit Render",
+    ].join("\n"),
+  );
+  const both = diff(catalog, ach, heldReward);
+  assert.equal(both.completed, 3);
+  assert.deepEqual(both.classes, []);
+  assert.deepEqual(both.islands, []);
+  const mixed = diff(
+    {
+      drops: smallCatalog.drops,
+      tests: [
+        smallCatalog.tests[1],
+        {
+          class: "Ranger",
+          npc: "Ranger Spirit",
+          rewards: ["Dark Cloak of the Sky"],
+          rune: "Wind Rune Oska",
+          items: [{ name: "Some Item", drop: "bazzt" }],
+        },
+      ],
+    },
+    null,
+    heldReward,
+  );
+  assert.equal(mixed.completed, 0);
+  assert.deepEqual(
+    mixed.classes[0].tests.map((row) => row.rewards),
+    [["Dark Cloak of the Sky"]],
+  );
+  assert.equal(JSON.stringify(mixed).includes("Griffon Talon"), false);
 });
 
 test("unreadable files and a file with no class unlocks do not invent a list", () => {

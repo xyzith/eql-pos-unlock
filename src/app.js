@@ -1,5 +1,6 @@
 import { decodeText, parseAchievements, parseInventory } from "./parse.js";
 import { diff } from "./diff.js";
+import { loadProgress, saveSide } from "./store.js";
 
 const catalog = await fetch(new URL("../catalog.json", import.meta.url)).then((res) => res.json());
 const achInput = document.querySelector("#ach");
@@ -32,11 +33,35 @@ function addText(parent, tag, text, className) {
   return node;
 }
 
-async function readSelected(file, parse) {
-  if (!file) return null;
-  const text = decodeText(new Uint8Array(await file.arrayBuffer()));
-  if (text === null) return { ok: false };
-  return parse(text);
+function el(tag, className) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  return node;
+}
+
+function addSpan(parent, text, className) {
+  const node = el("span", className);
+  node.textContent = text;
+  parent.append(node);
+  return node;
+}
+
+function addRewards(parent, rewards) {
+  rewards.forEach((name, index) => {
+    if (index > 0) parent.append("、");
+    addSpan(parent, name, "eq-gear");
+  });
+}
+
+function openStorage() {
+  try {
+    const probe = "eql-pos-unlock.probe";
+    localStorage.setItem(probe, "1");
+    localStorage.removeItem(probe);
+    return localStorage;
+  } catch {
+    return null;
+  }
 }
 
 function render(result) {
@@ -54,7 +79,12 @@ function render(result) {
   for (const row of result.classes) {
     const block = addText(classPane, "section", "", "class-block");
     addText(block, "h2", row.name);
-    if (row.npc) addText(block, "p", `交給 ${row.npc}`);
+    if (row.npc) {
+      const turnIn = el("p");
+      turnIn.append("交給 ");
+      addSpan(turnIn, row.npc, "eq-npc");
+      block.append(turnIn);
+    }
     if (row.note) addText(block, "p", row.note);
     for (const item of row.tests) {
       const card = addText(block, "section", "");
@@ -62,15 +92,18 @@ function render(result) {
         addText(card, "p", item.unmatched);
         continue;
       }
-      addText(card, "h3", item.rewards.join("、"));
+      const heading = el("h3");
+      addRewards(heading, item.rewards);
+      card.append(heading);
       if (item.status) addText(card, "p", STATUS[item.status]);
       const list = document.createElement("ul");
       for (const line of item.lines) {
-        const li = document.createElement("li");
-        li.textContent = `${line.name}　${line.source}`;
+        const li = el("li");
+        addSpan(li, line.name, "eq-item");
+        li.append("　");
+        addSpan(li, line.source, "eq-mob");
         if (line.mark) {
-          const mark = document.createElement("span");
-          mark.className = line.mark;
+          const mark = el("span", line.mark);
           mark.textContent = `　${MARK[line.mark]}`;
           li.append(mark);
         }
@@ -82,13 +115,18 @@ function render(result) {
   if (result.islands.length === 0) addText(islandPane, "p", "沒有還缺的交物。");
   for (const section of result.islands) {
     const block = addText(islandPane, "section", "", "island-block");
-    addText(block, "h2", section.title);
+    addText(block, "h2", section.title, "eq-mob");
     const list = document.createElement("ul");
     for (const item of section.rows) {
-      const who = item.holders
-        .map((holder) => `${holder.class} ${holder.rewards.join("、")}`)
-        .join("；");
-      addText(list, "li", `${item.name}　${who}`);
+      const li = el("li");
+      addSpan(li, item.name, "eq-item");
+      li.append("　");
+      item.holders.forEach((holder, index) => {
+        if (index > 0) li.append("；");
+        li.append(`${holder.class} `);
+        addRewards(li, holder.rewards);
+      });
+      list.append(li);
     }
     block.append(list);
   }
@@ -99,17 +137,51 @@ async function refresh() {
   render(result);
 }
 
+const storage = openStorage();
+
+function restore() {
+  if (!storage) return;
+  const saved = loadProgress(storage);
+  if (saved.achievements !== null) {
+    achievements = parseAchievements(saved.achievements);
+    achName.textContent = saved.achievementsName || "上次的成就清單";
+  }
+  if (saved.inventory !== null) {
+    inventory = parseInventory(saved.inventory);
+    invName.textContent = saved.inventoryName || "上次的裝備清單";
+  }
+}
+
+function remember(side, text, name) {
+  if (!storage) return;
+  saveSide(storage, side, text, name);
+}
+
+async function takeFile(input, side, parse) {
+  const file = input.files?.[0] ?? null;
+  if (!file) return null;
+  const label = side === "achievements" ? achName : invName;
+  label.textContent = file.name;
+  const text = decodeText(new Uint8Array(await file.arrayBuffer()));
+  if (text === null) {
+    remember(side, "", file.name);
+    return { ok: false };
+  }
+  remember(side, text, file.name);
+  return parse(text);
+}
+
 achInput.addEventListener("change", async () => {
-  const file = achInput.files?.[0] ?? null;
-  achName.textContent = file ? file.name : "";
-  achievements = await readSelected(file, parseAchievements);
+  const parsed = await takeFile(achInput, "achievements", parseAchievements);
+  if (!parsed) return;
+  achievements = parsed;
   await refresh();
 });
 
 invInput.addEventListener("change", async () => {
-  const file = invInput.files?.[0] ?? null;
-  invName.textContent = file ? file.name : "";
-  inventory = await readSelected(file, parseInventory);
+  const parsed = await takeFile(invInput, "inventory", parseInventory);
+  if (!parsed) return;
+  inventory = parsed;
   await refresh();
 });
 
@@ -127,4 +199,5 @@ tabIsland.addEventListener("click", () => {
   islandPane.hidden = false;
 });
 
+restore();
 await refresh();

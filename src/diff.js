@@ -93,6 +93,11 @@ function statusOf(held, lines) {
   return "partial";
 }
 
+function rewardHeld(row, held) {
+  if (!held) return false;
+  return row.rewards.some((name) => held.has(normItem(name)));
+}
+
 function classTests(catalog, name) {
   return catalog.tests.filter((row) => normClass(row.class) === normClass(name));
 }
@@ -138,8 +143,12 @@ function openFromAchievements(catalog, achievements, held) {
         });
         continue;
       }
-      const view = viewOf({ ...matched, drops: catalog.drops }, held);
-      tests.push(view);
+      if (rewardHeld(matched, held)) continue;
+      tests.push(viewOf({ ...matched, drops: catalog.drops }, held));
+    }
+    if (tests.length === 0) {
+      completed += 1;
+      continue;
     }
     normal.push({
       name: found[0].class,
@@ -211,20 +220,30 @@ function listFromAchievements(catalog, achievements, held) {
 
 function listFromInventory(catalog, held) {
   const classes = [];
+  let completed = 0;
   for (const row of catalog.tests) {
     let group = classes.find((item) => item.name === row.class);
     if (!group) {
       group = { name: row.class, npc: row.npc, note: null, tests: [] };
       classes.push(group);
     }
+    if (rewardHeld(row, held)) continue;
     group.tests.push(viewOf({ ...row, drops: catalog.drops }, held));
+  }
+  const visible = [];
+  for (const group of classes) {
+    if (group.tests.length === 0) {
+      completed += 1;
+      continue;
+    }
+    visible.push(group);
   }
   return {
     banners: [],
     showList: true,
-    completed: null,
-    classes,
-    islands: islandsOf(catalog, classes),
+    completed,
+    classes: visible,
+    islands: islandsOf(catalog, visible),
   };
 }
 
