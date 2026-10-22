@@ -15,6 +15,9 @@ label, button {
 .local, .banner {
   color: #e2c27a;
 }
+code {
+  font: 0.95em ui-monospace, monospace;
+}
 .class-block, .island-block {
   margin-top: 1.25rem;
 }
