@@ -14,9 +14,9 @@ python3 -m http.server 8765
 
 然後開 <http://127.0.0.1:8765/>。不要用 `file://`。
 
-成就檔：遊戲裡打 `/outputfile achievements`，不要加 Complete。安裝目錄寫出 `*-Achievements.txt`。
+`/outputfile achievements` 產生 `*-Achievements.txt`
 
-裝備檔：`/outputfile inventory`，也就是 `/output inventory`。安裝目錄寫出 `*-Inventory.txt`。銀行和 KeyRing 都算持有。
+`/outputfile inventory` 產生 `*-Inventory.txt`
 
 只選一個也能看，頁面會寫哪裡不準。身上有成品，那筆試煉算解過。材料不會因為有成品就變成已有。成品刪掉之後，要靠成就檔才會從清單拿掉。
 
